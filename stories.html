@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unheard - Stories</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  color:#f3eadb;
+  background:
+  linear-gradient(rgba(24,55,60,0.9), rgba(18,40,45,0.95)),
+  url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+  background-size:cover;
+  background-position:center;
+  overflow-x:hidden;
+}
+
+.circle-bg{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.05);
+  animation:float 20s infinite ease-in-out;
+}
+.circle-bg:nth-child(1){ width:150px;height:150px;top:10%;left:10%; }
+.circle-bg:nth-child(2){ width:200px;height:200px;bottom:10%;right:15%;animation-duration:30s; }
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-30px);}
+  100%{transform:translateY(0);}
+}
+
+h1{
+  text-align:center;
+  font-family:'Playfair Display', serif;
+  font-size:50px;
+  margin:30px 0;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+select,input{
+  padding:8px 12px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+}
+
+.stories{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+  padding:20px;
+}
+
+.story{
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  padding:30px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  box-shadow:0 8px 25px rgba(0,0,0,0.4);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  transition:0.4s ease;
+  animation:fadeIn 1s ease;
+}
+
+.story:hover{
+  transform:scale(1.05);
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.story h3{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.story p{
+  font-size:13px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="circle-bg"></div>
+<div class="circle-bg"></div>
+
+<h1>Unheard Stories</h1>
+
+<div class="controls">
+  <input type="text" id="searchInput" placeholder="Search title...">
+  <label>
+    <input type="checkbox" id="anonymousFilter"> Anonymous Only
+  </label>
+</div>
+
+<div class="stories" id="storiesContainer"></div>
+
+<script>
+const container = document.getElementById("storiesContainer");
+const searchInput = document.getElementById("searchInput");
+const anonymousFilter = document.getElementById("anonymousFilter");
+
+let storiesData = JSON.parse(localStorage.getItem("stories")) || [];
+
+function displayStories(){
+  container.innerHTML="";
+
+  let filtered = storiesData.filter(story=>{
+    const matchesSearch = story.title.toLowerCase()
+      .includes(searchInput.value.toLowerCase());
+    const matchesAnonymous = anonymousFilter.checked 
+      ? story.author === "Anonymous" 
+      : true;
+    return matchesSearch && matchesAnonymous;
+  });
+
+  if(filtered.length === 0){
+    container.innerHTML = "<p>No stories yet.</p>";
+    return;
+  }
+
+  filtered.forEach(story=>{
+    const card = document.createElement("div");
+    card.className="story";
+
+    card.innerHTML=`
+      <h3>${story.title}</h3>
+      <p>${story.content.substring(0,120)}...</p>
+      <small>— ${story.author}</small>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+searchInput.addEventListener("input", displayStories);
+anonymousFilter.addEventListener("change", displayStories);
+
+displayStories();
+</script>
+
+</body>
+</html>

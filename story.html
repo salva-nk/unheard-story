@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unheard - Add Story</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #f5f1e8;
+    background: linear-gradient(rgba(30,60,70,0.85), rgba(20,40,50,0.9)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    animation: float 15s infinite linear;
+}
+
+.circle:nth-child(1){
+    width:120px; height:120px;
+    top:10%; left:10%;
+}
+.circle:nth-child(2){
+    width:200px; height:200px;
+    bottom:10%; right:15%;
+    animation-duration: 25s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0px); }
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-top: 40px;
+    letter-spacing: 3px;
+}
+
+.quote {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #e8dfcf;
+    font-style: italic;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+#charCount {
+    font-size: 12px;
+    text-align: right;
+    color: #ddd5c7;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #2f6f73;
+    color: #f5f1e8;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #3f8f94;
+}
+
+.success {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #cfe8dc;
+}
+
+.footer-quote {
+    text-align: center;
+    margin-top: 50px;
+    font-style: italic;
+    color: #ddd5c7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+
+<h1>Unheard</h1>
+<p class="quote">"Every silent voice carries a story waiting to be felt."</p>
+
+<div class="container">
+    <form id="storyForm">
+
+        <input type="text" id="title" placeholder="Story Title *" required>
+
+        <textarea id="content" rows="6" maxlength="1000" placeholder="Write your story here... *" required></textarea>
+        <div id="charCount">0 / 1000 characters</div>
+
+        <input type="text" id="author" placeholder="Your Name (Optional)">
+
+        <label>
+            <input type="checkbox" id="anonymous"> Post as Anonymous
+        </label>
+
+        <br><br>
+
+        <button type="submit">Share Story</button>
+        <div id="successMessage" class="success"></div>
+
+    </form>
+</div>
+
+<p class="footer-quote">
+"Some stories are not loud, yet they change everything."
+</p>
+
+<script>
+const contentField = document.getElementById("content");
+const charCount = document.getElementById("charCount");
+const successMessage = document.getElementById("successMessage");
+
+contentField.addEventListener("input", () => {
+  charCount.textContent = contentField.value.length + " / 1000 characters";
+});
+
+document.getElementById("storyForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const content = document.getElementById("content").value;
+  const authorInput = document.getElementById("author").value;
+  const anonymous = document.getElementById("anonymous").checked;
+
+  const author = anonymous ? "Anonymous" : (authorInput || "Anonymous");
+
+  let stories = JSON.parse(localStorage.getItem("stories")) || [];
+
+  stories.push({
+    title: title,
+    content: content,
+    author: author
+  });
+
+  localStorage.setItem("stories", JSON.stringify(stories));
+
+  successMessage.textContent = "✅ Story uploaded successfully!";
+
+  setTimeout(()=>{
+    window.location.href = "selection.html";
+  },1500);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@300&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(rgba(8,18,22,0.9), rgba(8,18,22,0.9)),
+                url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');
+    background-size: cover;
+    background-position: center;
+    color: #e8d8c3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    backdrop-filter: blur(10px);
+    padding: 45px;
+    width: 450px;
+    background: rgba(18, 38, 42, 0.7);
+    border-radius: 6px;
+    box-shadow: 0 0 35px rgba(0,0,0,0.8);
+    animation: fadeIn 1.2s ease;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.tagline {
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 30px;
+    opacity: 0.85;
+}
+
+.menu-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-btn {
+    background: transparent;
+    border: 1px solid #e8d8c3;
+    color: #e8d8c3;
+    padding: 12px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.menu-btn:hover {
+    background: #e8d8c3;
+    color: #12262a;
+}
+
+.content-section {
+    display: none;
+    margin-top: 20px;
+    animation: slideUp 0.5s ease;
+}
+
+textarea,
+input[type="text"],
+input[type="file"],
+input[type="date"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid #e8d8c3;
+    color: #e8d8c3;
+}
+
+textarea {
+    height: 80px;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 10px;
+    background: #e8d8c3;
+    border: none;
+    cursor: pointer;
+    color: #12262a;
+    letter-spacing: 1px;
+}
+
+.logout {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid #e8d8c3;
+    color: #e8d8c3;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background: #e8d8c3;
+    color: #12262a;
+}
+
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@keyframes slideUp {
+    from {transform: translateY(15px); opacity:0;}
+    to {transform: translateY(0); opacity:1;}
+}

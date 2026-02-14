@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selection Page</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="selection.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">Raw Beneath the Surface</h1>
+    <p class="tagline">"Where unspoken emotions find their space."</p>
+
+    <div class="menu-box">
+        
+       
+        <button class="menu-btn" onclick="goToUpload()">UPLOAD IMAGE</button>
+        <button class="menu-btn" onclick="goToVideoUpload()">UPLOAD VIDEO</button>
+        <button class="menu-btn" onclick="showSection('event')">ORGANISE EVENT</button>
+        <button class="menu-btn" onclick="goToStory()">ADD STORY</button>
+        <button class="menu-btn" onclick="goToStories()">VIEW STORIES</button>
+
+
+
+    <!-- Organise Event Section -->
+    <div class="content-section" id="eventSection">
+        <input type="text" placeholder="Event Title">
+        <input type="date">
+        <input type="text" placeholder="Location">
+        <textarea placeholder="Event Description"></textarea>
+        <button class="action-btn">Create Event</button>
+    </div>
+
+    <button class="logout" onclick="logout()">LOGOUT</button>
+
+</div>
+
+<script src="selection.js"></script>
+
+</body>
+</html>

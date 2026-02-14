@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Video</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="upload-video.css">
+</head>
+
+<body>
+
+<!-- Floating background shapes -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<div class="container">
+
+    <h1 class="title">Upload Video</h1>
+    <p class="quote">"Every motion tells a deeper story."</p>
+
+    <div class="upload-box">
+
+        <!-- Hidden File Input -->
+        <input type="file" id="videoInput" accept="video/*" hidden>
+
+        <!-- Video Select Button -->
+        <div class="video-btn" onclick="selectVideo()">🎥</div>
+        <p class="hint">Click to select a video</p>
+
+        <!-- Preview -->
+        <div id="preview"></div>
+
+        <button class="upload-btn" onclick="uploadVideo()">Upload</button>
+
+    </div>
+
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+
+</div>
+
+<script src="upload-video.js"></script>
+</body>
+</html>

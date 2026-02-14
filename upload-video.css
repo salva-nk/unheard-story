@@ -1,0 +1,140 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  color:#f3eadb;
+  height:100vh;
+  overflow:hidden;
+  background:
+  linear-gradient(rgba(24,55,60,0.88), rgba(18,40,45,0.92)),
+  url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* Floating circles */
+.circle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.05);
+  animation:float 20s infinite ease-in-out;
+}
+
+.circle:nth-child(1){
+  width:150px; height:150px;
+  top:8%; left:10%;
+}
+
+.circle:nth-child(2){
+  width:200px; height:200px;
+  bottom:8%; right:10%;
+}
+
+.circle:nth-child(3){
+  width:100px; height:100px;
+  top:70%; left:40%;
+}
+
+@keyframes float{
+  0%{ transform:translateY(0);}
+  50%{ transform:translateY(-30px);}
+  100%{ transform:translateY(0);}
+}
+
+.container{
+  z-index:2;
+  max-width:500px;
+  animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.title{
+  font-family:'Playfair Display', serif;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.quote{
+  font-style:italic;
+  margin-bottom:30px;
+  color:#e6dccb;
+}
+
+.upload-box{
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(12px);
+  padding:30px;
+  border-radius:8px;
+  box-shadow:0 0 25px rgba(0,0,0,0.5);
+}
+
+.video-btn{
+  width:90px;
+  height:90px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  border:2px solid #f3eadb;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:35px;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.video-btn:hover{
+  background:#2f6f73;
+  transform:scale(1.1);
+}
+
+.hint{
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+#preview video{
+  width:100%;
+  border-radius:5px;
+  margin-bottom:15px;
+}
+
+.upload-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  background:#2f6f73;
+  color:#f3eadb;
+  border-radius:5px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.upload-btn:hover{
+  background:#3f8b90;
+}
+
+.back-btn{
+  margin-top:20px;
+  padding:8px 20px;
+  border:1px solid #f3eadb;
+  background:transparent;
+  color:#f3eadb;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  background:#2f6f73;
+}

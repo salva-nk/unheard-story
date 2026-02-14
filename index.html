@@ -1,19 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Unheard - Story Sharing</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unheard</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  color:#f3eadb;
+  height:100vh;
+  overflow:hidden;
+  background:
+  linear-gradient(rgba(24,55,60,0.85), rgba(18,40,45,0.92)),
+  url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* Floating Objects */
+.circle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.05);
+  animation:float 18s infinite ease-in-out;
+}
+
+.circle:nth-child(1){
+  width:120px; height:120px;
+  top:10%; left:15%;
+}
+
+.circle:nth-child(2){
+  width:180px; height:180px;
+  bottom:10%; right:15%;
+  animation-duration:25s;
+}
+
+.circle:nth-child(3){
+  width:90px; height:90px;
+  top:70%; left:40%;
+  animation-duration:20s;
+}
+
+@keyframes float{
+  0%{ transform:translateY(0px);}
+  50%{ transform:translateY(-30px);}
+  100%{ transform:translateY(0px);}
+}
+
+/* Container */
+.container{
+  z-index:2;
+  max-width:700px;
+  animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Title */
+h1{
+  font-family:'Playfair Display', serif;
+  font-size:64px;
+  letter-spacing:4px;
+  margin-bottom:20px;
+}
+
+/* Quotes */
+.quote{
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px;
+  font-style:italic;
+  margin-bottom:15px;
+  color:#e6dccb;
+}
+
+/* Description */
+.description{
+  font-size:16px;
+  margin-bottom:40px;
+  color:#e9dfcf;
+}
+
+/* Buttons */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+button{
+  padding:12px 28px;
+  border-radius:30px;
+  border:none;
+  font-size:14px;
+  cursor:pointer;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  color:#f3eadb;
+  transition:all 0.3s ease;
+}
+
+button:hover{
+  background:#2f6f73;
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Unheard</h1>
-    <p>A platform where voices never disappear.</p>
 
-    <a href="add-story.html">
-        <button>Add Story</button>
-    </a>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
 
-    <a href="view-stories.html">
-        <button>View Stories</button>
-    </a>
+<div class="container">
+
+  <h1>Unheard</h1>
+
+  <p class="quote">"Some voices are soft, yet they echo forever."</p>
+  <p class="quote">"Every untold story deserves a place to breathe."</p>
+
+  <p class="description">
+    Join a space where silent stories are written, preserved, and felt.
+  </p>
+
+  <div class="buttons">
+    <button onclick="goToSignUp()">Sign Up</button>
+    <button onclick="goToSignIn()">Sign In</button>
+  </div>
+
+</div>
+
+<script>
+
+function goToSignUp(){
+  window.location.href = "signup.html";
+}
+
+function goToSignIn(){
+  window.location.href = "signin.html";
+}
+
+</script>
 
 </body>
 </html>
