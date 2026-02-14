@@ -1,4 +1,4 @@
-             🚀 Unheard – Raw Beneath The Surface
+![story section (2)](https://github.com/user-attachments/assets/942706dc-7810-478b-8903-f808a88e3250)             🚀 Unheard – Raw Beneath The Surface
 
  📌 Project Description
     
@@ -82,28 +82,30 @@ npx live-server
 
 Home Page
 
+![Home page](https://github.com/user-attachments/assets/e9fb346e-254d-4fd1-b542-e6767dd56851)
+
 (Add screenshot here)
 
 Story Section
+![story section (2)](https://github.com/user-attachments/assets/f61d8483-68d0-47ab-8ca7-e91e08c5f1d5)
+![story section](https://github.com/user-attachments/assets/7183120e-f514-4a18-be0c-a1ec3a87fc88)
 
-(Add screenshot here)
-
- Event Creation Page
-
-(Add screenshot here)
-
+ view story section
+ ![WhatsApp Image 2026-02-14 at 8 14 08 AM](https://github.com/user-attachments/assets/9977abea-1cdc-47e6-906f-1668873f3f45)
 ---
 
 🎥 Demo Video
 
-Demo Link: (Add your demo video link here)
+Demo Link: 
+https://github.com/user-attachments/assets/bff25c23-bda6-46f6-8b79-cecec8b07872
+
 
 ---
 🏗 Architecture Diagram
 
 Frontend (HTML/CSS/JS) → User Interaction → Supabase Database (Future Integration)
 
-(Add detailed diagram in `/docs` folder)
+
 
 ---
 
@@ -111,7 +113,11 @@ Frontend (HTML/CSS/JS) → User Interaction → Supabase Database (Future Integr
 
 Supabase Integration
 
-* Used for authentication and data storage.
+* Used for authentication an
+
+https://github.com/user-attachments/assets/6e5fa5fc-27d1-44b7-b888-35fdf9419f13
+
+d data storage.
 * Future implementation for story and event storage.
 
 ---
