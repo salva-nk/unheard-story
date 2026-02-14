@@ -1,6 +1,6 @@
              🚀 Unheard – Raw Beneath The Surface
 
-## 📌 Project Description
+ 📌 Project Description
     
 Unheard –*Raw Beneath The Surface* is a web platform where users can share untold stories, express emotions, and organize awareness events.
 It provides a safe digital space for silent voices to be written, preserved, and shared with a community
@@ -127,7 +127,7 @@ Live Website: (Add deployed link here)
  👥 Team Members
 
 * SALVA NK — BACKEND DEVELOPER
-* LAKSHMI ANIL — UI/UX DEIGNER
+* LAKSHMI ANIL — UI/UX DEIGNER,front end developer
 ---
 
 🤖 AI Tools Used
